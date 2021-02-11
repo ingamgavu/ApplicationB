@@ -3,13 +3,7 @@
 @if(isset($_GET['submit']))
 @for($i=0;$i<10;$i++)
   <h4>number {{$i}}</h4>
-  <h4>number {{$i}}</h4>
-  <h4>number {{$i}}</h4>
-  <h4>number {{$i}}</h4>
-  <h4>number {{$i}}</h4>
-  <h4>number {{$i}}</h4>
-  <h4>number {{$i}}</h4>
-  <h4>number {{$i}}</h4>
+ 
 @endfor
 @endif
 <form action="users" method="GET">
