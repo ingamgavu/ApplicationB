@@ -19,5 +19,9 @@ use App\Http\Controllers\memberController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::GET('/users', function () {
+    return view('users');
+});
+
 Route::get('list',[memberController::class,'index']);
 

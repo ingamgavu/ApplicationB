@@ -12,6 +12,6 @@
       <td>{{$store['name']}}</td>
       <td>{{$store['email']}}</td>
       <td>{{$store['phone']}}</td>
-  </tr>
+      </tr>
   @endforeach
 </table>
