@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 //now to import the users controller that we want to user
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\memberController;
+use App\Http\Controllers\UserController;
 /*
 |-------------- ------------------------------------------------------------
 | Web Routes
@@ -14,14 +15,14 @@ use App\Http\Controllers\memberController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-//Route::post('users',[users::class,'getData']);
 Route::get('/', function () {
     return view('welcome');
 });
-Route::GET('/users', function () {
-    return view('users');
-});
+Route::get("users",[UserController::class,'index']);
+Route::view("login","login");
+Route::view("member","member");
+Route::view("home","home");
+Route::view("noaccess","noaccess");
 
-Route::get('list',[memberController::class,'index']);
+
 

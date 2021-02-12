@@ -12,8 +12,11 @@ class Kernel extends HttpKernel
      * These middleware are run during every request to your application.
      *
      * @var array
+     * the following midlware is the global middleware and we write out code in the 
+     * global middlware that we have
      */
     protected $middleware = [
+        \App\Http\Middleware\checkuser::class,
         \App\Http\Middleware\limitAge::class,
         \App\Http\Middleware\TrustProxies::class,
         \Fruitcake\Cors\HandleCors::class,
@@ -30,6 +33,7 @@ class Kernel extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
+            
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
@@ -44,8 +48,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
         'protectedPage'=>[
-            \App\Http\Middleware\ageCheck::class,
-            \App\Http\Middleware\limitAge::class,
+            \App\Http\Middleware\checkuser::class,
         ]
     ];
 
@@ -57,6 +60,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'protectedPage' => \App\Http\Middleware\checkuser::class,
         'protectedPage' => \App\Http\Middleware\ageCheck::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
