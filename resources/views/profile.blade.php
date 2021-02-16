@@ -1,6 +1,5 @@
+<h1>Profile Page</h1>
 
-<h1>{{__('profile.welcome')}}</h1>
+<h2>Name: {{session('user')}}</h2>
 
-<a href=" ">{{__('list')}}</a>
-<a href=" ">{{__('about')}}</a>
-<a href="">{{__('contact')}}</a>
+<a href="add">Add more Me</a>

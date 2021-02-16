@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\memberController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\userAuth;
+use App\Http\Controllers\addMember;
 /*
 |-------------- ------------------------------------------------------------
 | Web Routes
@@ -18,11 +20,13 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get("users",[UserController::class,'index']);
-Route::view("login","login");
-Route::view("member","member");
-Route::view("home","home");
-Route::view("noaccess","noaccess");
+Route::post("add",[memberController::class,'addData']);
+Route::get("list",[memberController::class,'list']);
+Route::get('delete/{id}',[memberController::class,'delete']);
+Route::get('edit/{id}',[memberController::class,'showData']);
+Route::post('edit',[memberController::class,'update']);
+Route::view("addMember","add");
+
 
 
 
